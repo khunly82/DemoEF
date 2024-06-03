@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[TeamSponsor]
+(
+	[TeamId] INT REFERENCES Team
+		ON DELETE CASCADE,
+	[SponsorId] INT REFERENCES Sponsor
+		ON DELETE CASCADE
+)

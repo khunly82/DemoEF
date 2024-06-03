@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Player]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(50) NOT NULL,
+	[BirthDate] DATE NOT NULL,
+	[Number] SMALLINT NULL,
+	[TeamId] INT NULL REFERENCES [Team] 
+		ON DELETE SET NULL,
+	UNIQUE([TeamId], [Number])
+)
