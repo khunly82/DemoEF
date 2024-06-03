@@ -1,14 +1,10 @@
-﻿using DemoEF.Domain.Entities;
+﻿using DemoEF.BLL.Interfaces.Repositories;
+using DemoEF.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DemoEF.DAL.Repositories
 {
-    public class PlayerRepository(DemoEFContext dbContext)
+    public class PlayerRepository(DemoEFContext dbContext) : IPlayerRepository
     {
         public IEnumerable<Player> GetAll()
         {

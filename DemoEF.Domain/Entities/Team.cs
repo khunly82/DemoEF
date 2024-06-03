@@ -14,5 +14,6 @@ namespace DemoEF.Domain.Entities
         public string? MimeType { get; set; }
         public ICollection<Player> Players { get; set; } = [];
         public ICollection<Sponsor> Sponsors { get; set; } = [];
+        public ICollection<Training> Trainings { get; set; } = [];
     }
 }

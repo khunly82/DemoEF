@@ -1,3 +1,6 @@
+using DemoEF.BLL.Interfaces.Repositories;
+using DemoEF.BLL.Interfaces.Services;
+using DemoEF.BLL.Services;
 using DemoEF.DAL;
 using DemoEF.DAL.Repositories;
 
@@ -11,7 +14,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<DemoEFContext>();
-builder.Services.AddScoped<PlayerRepository>();
+builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
+builder.Services.AddScoped<IPlayerService, PlayerService>();
+
+builder.Services.AddScoped<ISponsorRepository, SponsorRepository>();
+builder.Services.AddScoped<ISponsorService, SponsorService>();
 
 var app = builder.Build();
 
