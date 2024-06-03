@@ -15,5 +15,15 @@ namespace DemoEF.DAL.Repositories
             dbContext.Add(sponsor);
             dbContext.SaveChanges();
         }
+
+        public IEnumerable<Sponsor> GetAll()
+        {
+            return dbContext.Set<Sponsor>().ToList();
+        }
+
+        public Sponsor? GetById(int sponsorId)
+        {
+            return dbContext.Set<Sponsor>().Find(sponsorId);
+        }
     }
 }

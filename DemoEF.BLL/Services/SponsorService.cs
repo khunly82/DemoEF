@@ -15,5 +15,20 @@ namespace DemoEF.BLL.Services
         {
             sponsorRepository.Add(sponsor);
         }
+
+        public IEnumerable<Sponsor> GetAll()
+        {
+            return sponsorRepository.GetAll();
+        }
+
+        public Sponsor GetById(int sponsorId)
+        {
+            Sponsor? sponsor = sponsorRepository.GetById(sponsorId);
+            if (sponsor is null)
+            {
+                throw new KeyNotFoundException();
+            }
+            return sponsor;
+        }
     }
 }

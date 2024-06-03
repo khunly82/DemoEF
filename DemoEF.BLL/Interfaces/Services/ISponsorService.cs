@@ -10,5 +10,7 @@ namespace DemoEF.BLL.Interfaces.Services
     public interface ISponsorService
     {
         void AddSponsor(Sponsor sponsor);
+        IEnumerable<Sponsor> GetAll();
+        Sponsor GetById(int sponsorId);
     }
 }

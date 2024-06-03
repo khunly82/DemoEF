@@ -25,5 +25,25 @@ namespace DemoEF.API.Controllers
             sponsorService.AddSponsor(sponsor);
             return NoContent();
         }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(sponsorService.GetAll().Select(s => new SponsorDTO(s)));
+        }
+
+        [HttpGet("{sponsorId}/image")]
+        public IActionResult ImageUrl(int sponsorId)
+        {
+            try
+            {
+                Sponsor sponsor = sponsorService.GetById(sponsorId);
+                return File(sponsor.Logo, sponsor.MimeType);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
+        }
     }
 }
